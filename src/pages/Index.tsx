@@ -38,7 +38,7 @@ const Index = () => {
                     <div key={i} className="w-8 h-8 bg-gradient-primary rounded-full border-2 border-white" />
                   ))}
                 </div>
-                <span>500+ people already signed up</span>
+                <span>Be among the first to know when we launch</span>
               </div>
             </div>
           </div>
