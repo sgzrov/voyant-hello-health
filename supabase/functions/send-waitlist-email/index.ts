@@ -115,8 +115,10 @@ serve(async (req) => {
     if (!response.ok) {
       const error = await response.text()
       console.error('Resend API error:', error)
+      console.error('Resend API response status:', response.status)
+      console.error('Resend API key exists:', !!resendApiKey)
       return new Response(
-        JSON.stringify({ error: 'Failed to send email' }),
+        JSON.stringify({ error: 'Failed to send email', details: error, status: response.status }),
         {
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
           status: 500,
