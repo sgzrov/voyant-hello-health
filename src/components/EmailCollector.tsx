@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const EmailCollector = () => {
   const [email, setEmail] = useState("");
@@ -23,48 +23,22 @@ export const EmailCollector = () => {
 
     setIsLoading(true);
     
-    try {
-      const response = await fetch('https://fzeyzljayyqlfnystwqs.supabase.co/functions/v1/send-waitlist-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6ZXl6bGpheXlxbGZueXN0d3FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NjI4NDcsImV4cCI6MjA3MTMzODg0N30.zLPqxkRY3dNEiUlLxmS-jpl0HRp7E2WwHTGxMdIuqQ0',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send confirmation email');
-      }
-
-      setIsSuccess(true);
-      toast({
-        title: "Success!",
-        description: "You've been added to our launch list and will receive a confirmation email shortly!",
-      });
-      
-      // Reset form after 2 seconds
-      setTimeout(() => {
-        setEmail("");
-        setIsSuccess(false);
-      }, 2000);
-    } catch (error) {
-      console.error('Error sending email:', error);
-      toast({
-        title: "Added to waitlist!",
-        description: "You're on the list! We'll notify you when Voyant is ready.",
-        variant: "default",
-      });
-      setIsSuccess(true);
-      
-      // Reset form after 2 seconds
-      setTimeout(() => {
-        setEmail("");
-        setIsSuccess(false);
-      }, 2000);
-    } finally {
+    // TODO: Replace with proper backend integration
+    // For now, just simulate success
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    setIsSuccess(true);
+    toast({
+      title: "Added to waitlist!",
+      description: "You're on the list! We'll notify you when Voyant is ready.",
+    });
+    
+    // Reset form after 2 seconds
+    setTimeout(() => {
+      setEmail("");
+      setIsSuccess(false);
       setIsLoading(false);
-    }
+    }, 2000);
   };
 
   return (
