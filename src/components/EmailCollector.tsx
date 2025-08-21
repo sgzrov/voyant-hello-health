@@ -26,13 +26,13 @@ export const EmailCollector = () => {
     try {
       // Call the Supabase Edge Function
       const response = await fetch(
-        "https://fzeyzljayyqlfnystwqs.supabase.co/functions/v1/send-waitlist-email",
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-waitlist-email`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6ZXl6bGpheXlxbGZueXN0d3FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NjI4NDcsImV4cCI6MjA3MTMzODg0N30.zLPqxkRY3dNEiUlLxmS-jpl0HRp7E2WwHTGxMdIuqQ0",
-            "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6ZXl6bGpheXlxbGZueXN0d3FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NjI4NDcsImV4cCI6MjA3MTMzODg0N30.zLPqxkRY3dNEiUlLxmS-jpl0HRp7E2WwHTGxMdIuqQ0"
+            "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            "apikey": `${import.meta.env.VITE_SUPABASE_ANON_KEY}`
           },
           body: JSON.stringify({ email }),
         }
