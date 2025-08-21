@@ -67,11 +67,7 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-hero': 'var(--gradient-hero)',
-				'gradient-text': 'var(--gradient-text)'
-			},
-			fontSize: {
-				'hero': ['clamp(4rem, 10vw, 12rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
-				'hero-lg': ['clamp(6rem, 15vw, 20rem)', { lineHeight: '0.85', letterSpacing: '-0.02em' }],
+				'gradient-subtle': 'var(--gradient-subtle)'
 			},
 			boxShadow: {
 				'soft': 'var(--shadow-soft)',
