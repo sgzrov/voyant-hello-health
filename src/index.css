@@ -8,43 +8,41 @@ All colors MUST be HSL.
 
 @layer base {
 :root {
-    --background: 210 20% 98%;
-    --foreground: 215 25% 27%;
+    --background: 0 0% 100%;
+    --foreground: 220 9% 46%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 220 9% 46%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover-foreground: 220 9% 46%;
 
-    --primary: 197 71% 52%;
+    --primary: 4 89% 58%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 197 71% 73%;
+    --primary-glow: 4 89% 75%;
 
-    --secondary: 162 63% 41%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
 
-    --muted: 210 20% 95%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 197 100% 96%;
-    --accent-foreground: 197 71% 52%;
+    --accent: 4 100% 97%;
+    --accent-foreground: 4 89% 58%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 90%;
-    --input: 210 20% 94%;
-    --ring: 197 71% 52%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 4 89% 58%;
 
     /* Custom design tokens */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(197 71% 52%), hsl(162 63% 41%));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 20% 96%));
-    --glass: hsla(0, 0%, 100%, 0.25);
-    --glass-border: hsla(255, 255%, 255%, 0.18);
-    --shadow-soft: 0 8px 32px hsla(197, 71%, 52%, 0.12);
-    --shadow-glow: 0 0 40px hsla(197, 71%, 73%, 0.4);
+    --gradient-hero: linear-gradient(135deg, hsl(4 89% 58%), hsl(4 89% 75%));
+    --gradient-text: linear-gradient(135deg, hsl(4 89% 58%), hsl(4 89% 45%));
+    --shadow-soft: 0 4px 20px hsla(4, 89%, 58%, 0.1);
+    --shadow-glow: 0 0 60px hsla(4, 89%, 58%, 0.3);
 
     --radius: 0.5rem;
 
