@@ -35,6 +35,22 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="relative z-10 py-8 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col items-center justify-center space-y-4">
+            <div className="flex items-center space-x-6 text-sm text-muted-foreground">
+              <a href="#" className="hover:text-primary transition-colors duration-300">Privacy Policy</a>
+              <a href="#" className="hover:text-primary transition-colors duration-300">Terms of Service</a>
+              <a href="#" className="hover:text-primary transition-colors duration-300">Contact Support</a>
+            </div>
+            <div className="text-muted-foreground text-sm">
+              © Voyant
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
