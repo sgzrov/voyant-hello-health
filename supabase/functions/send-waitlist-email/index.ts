@@ -38,7 +38,7 @@ serve(async (req) => {
     }
 
     const emailData = {
-      from: 'Voyant <noreply@yourdomain.com>', // Replace with your domain
+      from: 'Voyant <onboarding@resend.dev>',
       to: [email],
       subject: 'Welcome to the Voyant Waitlist! 🚀',
       html: `

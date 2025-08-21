@@ -24,7 +24,7 @@ export const EmailCollector = () => {
     setIsLoading(true);
     
     try {
-      const response = await fetch('/functions/v1/send-waitlist-email', {
+      const response = await fetch('https://fzeyzljayyqlfnystwqs.supabase.co/functions/v1/send-waitlist-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
