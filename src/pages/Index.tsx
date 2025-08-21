@@ -1,11 +1,11 @@
 import { EmailCollector } from "@/components/EmailCollector";
-import { SpaceBackground } from "@/components/SpaceBackground";
+import { StarfieldBackground } from "@/components/StarfieldBackground";
 import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden flex flex-col">
-      <SpaceBackground />
+      <StarfieldBackground />
       
       {/* Hero Section */}
       <section className="relative z-10 pt-20 pb-16 px-4 flex-1 flex items-center">
