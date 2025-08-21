@@ -22,23 +22,49 @@ export const EmailCollector = () => {
     }
 
     setIsLoading(true);
-    
-    // TODO: Replace with proper backend integration
-    // For now, just simulate success
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSuccess(true);
-    toast({
-      title: "Added to waitlist!",
-      description: "You're on the list! We'll notify you when Voyant is ready.",
-    });
-    
-    // Reset form after 2 seconds
-    setTimeout(() => {
-      setEmail("");
-      setIsSuccess(false);
+
+    try {
+      // Call the Supabase Edge Function
+      const response = await fetch(
+        "https://fzeyzljayyqlfnystwqs.supabase.co/functions/v1/send-waitlist-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6ZXl6bGpheXlxbGZueXN0d3FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NjI4NDcsImV4cCI6MjA3MTMzODg0N30.zLPqxkRY3dNEiUlLxmS-jpl0HRp7E2WwHTGxMdIuqQ0",
+            "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6ZXl6bGpheXlxbGZueXN0d3FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NjI4NDcsImV4cCI6MjA3MTMzODg0N30.zLPqxkRY3dNEiUlLxmS-jpl0HRp7E2WwHTGxMdIuqQ0"
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSuccess(true);
+        toast({
+          title: "Added to waitlist!",
+          description: "You're on the list! We'll notify you when Voyant is ready.",
+        });
+
+        // Reset form after 2 seconds
+        setTimeout(() => {
+          setEmail("");
+          setIsSuccess(false);
+          setIsLoading(false);
+        }, 2000);
+      } else {
+        throw new Error(data.error || "Failed to join waitlist");
+      }
+    } catch (error) {
+      console.error("Error joining waitlist:", error);
+      toast({
+        title: "Error",
+        description: "Failed to join waitlist. Please try again.",
+        variant: "destructive",
+      });
       setIsLoading(false);
-    }, 2000);
+    }
   };
 
   return (
