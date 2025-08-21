@@ -1,14 +1,15 @@
 import { EmailCollector } from "@/components/EmailCollector";
 import { FloatingElements } from "@/components/FloatingElements";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-subtle relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-subtle relative overflow-hidden flex flex-col">
       <FloatingElements />
       
       {/* Hero Section */}
-      <section className="relative z-10 pt-20 pb-16 px-4">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative z-10 pt-20 pb-16 px-4 flex-1 flex items-center">
+        <div className="max-w-6xl mx-auto w-full">
           <div className="flex items-center justify-center">
             
             {/* Hero Content */}
@@ -37,13 +38,28 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 py-8 px-4">
+      <footer className="relative z-10 py-8 px-4 mt-auto">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4">
             <div className="flex items-center space-x-6 text-sm text-muted-foreground">
-              <a href="#" className="hover:text-primary transition-colors duration-300">Privacy Policy</a>
-              <a href="#" className="hover:text-primary transition-colors duration-300">Terms of Service</a>
-              <a href="#" className="hover:text-primary transition-colors duration-300">Contact Support</a>
+              <Link 
+                to="/privacy-policy" 
+                className="hover:text-primary transition-colors duration-300"
+              >
+                Privacy Policy
+              </Link>
+              <Link 
+                to="/terms-of-service" 
+                className="hover:text-primary transition-colors duration-300"
+              >
+                Terms of Service
+              </Link>
+              <Link 
+                to="/contact-support" 
+                className="hover:text-primary transition-colors duration-300"
+              >
+                Contact Support
+              </Link>
             </div>
             <div className="text-muted-foreground text-sm">
               © Voyant
