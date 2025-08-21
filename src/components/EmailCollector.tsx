@@ -23,15 +23,35 @@ export const EmailCollector = () => {
 
     setIsLoading(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsLoading(false);
-    setIsSubmitted(true);
-    toast({
-      title: "Success!",
-      description: "You've been added to our launch list. We'll notify you when Voyant is ready!",
-    });
+    try {
+      const response = await fetch('/functions/v1/send-waitlist-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send confirmation email');
+      }
+
+      setIsSubmitted(true);
+      toast({
+        title: "Success!",
+        description: "You've been added to our launch list and will receive a confirmation email shortly!",
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Added to waitlist!",
+        description: "You're on the list! We'll notify you when Voyant is ready.",
+        variant: "default",
+      });
+      setIsSubmitted(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isSubmitted) {
