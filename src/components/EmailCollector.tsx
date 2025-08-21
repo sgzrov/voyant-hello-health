@@ -28,6 +28,7 @@ export const EmailCollector = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6ZXl6bGpheXlxbGZueXN0d3FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NjI4NDcsImV4cCI6MjA3MTMzODg0N30.zLPqxkRY3dNEiUlLxmS-jpl0HRp7E2WwHTGxMdIuqQ0',
         },
         body: JSON.stringify({ email }),
       });
