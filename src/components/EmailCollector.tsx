@@ -37,12 +37,12 @@ export const EmailCollector = () => {
   if (isSubmitted) {
     return (
       <div className="flex flex-col items-center space-y-4 animate-fade-in">
-        <div className="flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full animate-pulse-glow">
+        <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse-glow">
           <CheckCircle2 className="w-8 h-8 text-white" />
         </div>
         <div className="text-center">
-          <h3 className="text-xl font-semibold text-foreground mb-2">You're on the list!</h3>
-          <p className="text-muted-foreground">
+          <h3 className="text-xl font-semibold text-white mb-2">You're on the list!</h3>
+          <p className="text-white/80">
             We'll notify you as soon as Voyant launches. Get ready to transform your health conversations!
           </p>
         </div>
@@ -58,13 +58,13 @@ export const EmailCollector = () => {
           placeholder="Enter your email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="flex-1 h-12 px-4 bg-white/90 backdrop-blur border-2 border-primary/20 focus:border-primary/40 text-foreground placeholder:text-muted-foreground"
+          className="flex-1 h-12 px-4 bg-white/10 backdrop-blur border-2 border-white/20 focus:border-white/40 text-white placeholder:text-white/60"
           disabled={isLoading}
         />
         <Button
           type="submit"
           disabled={isLoading}
-          className="h-12 px-6 bg-gradient-primary text-white font-medium hover:shadow-glow transition-all duration-300 group"
+          className="h-12 px-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 group border-0"
         >
           {isLoading ? (
             <div className="flex items-center space-x-2">
@@ -79,7 +79,7 @@ export const EmailCollector = () => {
           )}
         </Button>
       </div>
-      <p className="text-sm text-muted-foreground mt-3 text-center">
+      <p className="text-sm text-white/60 mt-3 text-center">
         Be among the first to know when we launch. No spam, ever.
       </p>
     </form>
