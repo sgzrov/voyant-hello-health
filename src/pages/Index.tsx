@@ -26,7 +26,7 @@ const Index = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Your AI-powered health companion. Get personalized insights, track symptoms, and chat about your wellness journey—all in one intelligent mobile app.
+                Your health has never been just steps and calories. It's a complex story — and for the first time, you can see it clearly.
               </p>
               
               <div className="mb-8">
