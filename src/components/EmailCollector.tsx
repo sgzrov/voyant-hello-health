@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const EmailCollector = () => {
   const [email, setEmail] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
@@ -36,11 +36,17 @@ export const EmailCollector = () => {
         throw new Error('Failed to send confirmation email');
       }
 
-      setIsSubmitted(true);
+      setIsSuccess(true);
       toast({
         title: "Success!",
         description: "You've been added to our launch list and will receive a confirmation email shortly!",
       });
+      
+      // Reset form after 2 seconds
+      setTimeout(() => {
+        setEmail("");
+        setIsSuccess(false);
+      }, 2000);
     } catch (error) {
       console.error('Error sending email:', error);
       toast({
@@ -48,27 +54,17 @@ export const EmailCollector = () => {
         description: "You're on the list! We'll notify you when Voyant is ready.",
         variant: "default",
       });
-      setIsSubmitted(true);
+      setIsSuccess(true);
+      
+      // Reset form after 2 seconds
+      setTimeout(() => {
+        setEmail("");
+        setIsSuccess(false);
+      }, 2000);
     } finally {
       setIsLoading(false);
     }
   };
-
-  if (isSubmitted) {
-    return (
-      <div className="flex flex-col items-center space-y-4 animate-fade-in">
-        <div className="flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full animate-pulse-glow">
-          <CheckCircle2 className="w-8 h-8 text-white" />
-        </div>
-        <div className="text-center">
-          <h3 className="text-xl font-semibold text-foreground mb-2">You're on the list!</h3>
-          <p className="text-muted-foreground">
-            We'll notify you as soon as Voyant launches. Get ready to transform your health conversations!
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto animate-fade-up">
@@ -83,10 +79,12 @@ export const EmailCollector = () => {
         />
         <Button
           type="submit"
-          disabled={isLoading}
+          disabled={isLoading || isSuccess}
           className="h-12 px-6 bg-gradient-primary text-white font-medium hover:shadow-glow transition-all duration-300 group"
         >
-          {isLoading ? (
+          {isSuccess ? (
+            <span>Success!</span>
+          ) : isLoading ? (
             <div className="flex items-center space-x-2">
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
               <span>Joining...</span>
