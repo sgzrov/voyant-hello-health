@@ -73,7 +73,7 @@ export const EmailCollector = () => {
             </div>
           ) : (
             <div className="flex items-center space-x-2">
-              <span>Get Early Access</span>
+              <span>Get Notified</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </div>
           )}
