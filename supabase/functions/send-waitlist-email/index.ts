@@ -38,7 +38,7 @@ serve(async (req) => {
     }
 
     const emailData = {
-      from: 'Voyant <onboarding@resend.dev>',
+      from: 'Voyant <sgzrov@gmail.com>',
       to: [email],
       subject: 'Welcome to the Voyant Waitlist! 🚀',
       html: `
