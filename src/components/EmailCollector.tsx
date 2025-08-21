@@ -80,7 +80,7 @@ export const EmailCollector = () => {
         </Button>
       </div>
       <p className="text-sm text-muted-foreground mt-3 text-center">
-        Join 500+ people waiting for launch. No spam, ever.
+        Be among the first to know when we launch. No spam, ever.
       </p>
     </form>
   );

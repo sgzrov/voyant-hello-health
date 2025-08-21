@@ -31,15 +31,6 @@ const Index = () => {
               <div className="mb-8">
                 <EmailCollector />
               </div>
-              
-              <div className="flex items-center justify-center text-sm text-muted-foreground">
-                <div className="flex -space-x-2 mr-3">
-                  {[...Array(3)].map((_, i) => (
-                    <div key={i} className="w-8 h-8 bg-gradient-primary rounded-full border-2 border-white" />
-                  ))}
-                </div>
-                <span>Be among the first to know when we launch</span>
-              </div>
             </div>
           </div>
         </div>
