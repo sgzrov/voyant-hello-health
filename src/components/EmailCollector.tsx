@@ -84,7 +84,7 @@ export const EmailCollector = () => {
           className="h-12 px-6 bg-gradient-primary text-white font-medium hover:shadow-glow transition-all duration-300 group"
         >
           {isSuccess ? (
-            <span>Success!</span>
+            <span>Subscribed</span>
           ) : isLoading ? (
             <div className="flex items-center space-x-2">
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -92,7 +92,7 @@ export const EmailCollector = () => {
             </div>
           ) : (
             <div className="flex items-center space-x-2">
-              <span>Get Notified</span>
+              <span>Subscribe</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </div>
           )}
