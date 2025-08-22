@@ -54,12 +54,7 @@ const Index = () => {
               >
                 Terms of Service
               </Link>
-              <Link
-                to="/contact-support"
-                className="hover:text-primary transition-colors duration-300"
-              >
-                Contact Support
-              </Link>
+
             </div>
             <div className="text-muted-foreground text-sm">
               © Voyant
