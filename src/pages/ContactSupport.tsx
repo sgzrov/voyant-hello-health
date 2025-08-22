@@ -7,10 +7,10 @@ const ContactSupport = () => {
     const subject = encodeURIComponent("Voyant Support Request");
     const body = encodeURIComponent("Hi Stephan,\n\nI need help with Voyant:\n\n");
 
-    // Gmail universal link that works on all devices
-    const gmailUrl = `https://gmail.com/co?to=sgzrov@gmail.com&su=${subject}&body=${body}`;
+    // Use the correct Gmail compose URL
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=sgzrov@gmail.com&su=${subject}&body=${body}`;
 
-    // Try to open Gmail app/website
+    // Try to open Gmail compose window
     window.open(gmailUrl, '_blank');
   };
 
