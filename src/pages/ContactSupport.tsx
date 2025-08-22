@@ -16,8 +16,8 @@ const ContactSupport = () => {
       .replace(/,/g, '%2C')
       .replace(/:/g, '%3A');
 
-    // Use the proven working Gmail compose URL format with proper encoding
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=sgzrov@gmail.com&su=${encodedSubject}&body=${encodedBody}`;
+    // Use #compose hash method to open as normal popup (not fullscreen)
+    const gmailUrl = `https://mail.google.com/mail/u/0/#compose?to=sgzrov@gmail.com&subject=${encodedSubject}&body=${encodedBody}`;
 
     // Try to open Gmail compose window
     window.open(gmailUrl, '_blank');
