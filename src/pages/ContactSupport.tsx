@@ -7,8 +7,8 @@ const ContactSupport = () => {
     const subject = encodeURIComponent("Voyant Support Request");
     const body = encodeURIComponent("Hi Stephan,\n\nI need help with Voyant:\n\n");
 
-    // Use the correct Gmail compose URL format that actually pre-fills fields
-    const gmailUrl = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=sgzrov@gmail.com&su=${subject}&body=${body}`;
+    // Use the correct Gmail compose URL format that opens within Gmail (not fullscreen)
+    const gmailUrl = `https://mail.google.com/mail/u/0/?view=cm&to=sgzrov@gmail.com&su=${subject}&body=${body}`;
 
     // Try to open Gmail compose window
     window.open(gmailUrl, '_blank');
