@@ -4,23 +4,14 @@ import { Button } from "@/components/ui/button";
 
 const ContactSupport = () => {
   const openGmail = () => {
-    // Properly encode special characters for Gmail compose URL
-    const subject = "Voyant Support Request";
-    const body = "Hi Stephan,\n\nI need help with Voyant:\n\n";
+    // Use mailto: link which opens default email client (Gmail) as normal compose
+    const subject = encodeURIComponent("Voyant Support Request");
+    const body = encodeURIComponent("Hi Stephan,\n\nI need help with Voyant:\n\n");
 
-    // Manual URL encoding for Gmail compatibility
-    const encodedSubject = subject.replace(/\s/g, '%20');
-    const encodedBody = body
-      .replace(/\s/g, '%20')
-      .replace(/\n/g, '%0A')
-      .replace(/,/g, '%2C')
-      .replace(/:/g, '%3A');
+    const mailtoUrl = `mailto:sgzrov@gmail.com?subject=${subject}&body=${body}`;
 
-    // Use #compose hash method to open as normal popup (not fullscreen)
-    const gmailUrl = `https://mail.google.com/mail/u/0/#compose?to=sgzrov@gmail.com&subject=${encodedSubject}&body=${encodedBody}`;
-
-    // Try to open Gmail compose window
-    window.open(gmailUrl, '_blank');
+    // This should open Gmail as normal compose window (not fullscreen)
+    window.location.href = mailtoUrl;
   };
 
   return (
