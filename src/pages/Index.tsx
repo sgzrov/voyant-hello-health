@@ -1,3 +1,4 @@
+import { EmailCollector } from "@/components/EmailCollector";
 import { FloatingElements } from "@/components/FloatingElements";
 import { Link } from "react-router-dom";
 
@@ -28,7 +29,9 @@ const Index = () => {
                 Your health has never been just steps and calories. It's a complex story — and for the first time, you can see it clearly.
               </p>
 
-
+              <div className="mb-8">
+                <EmailCollector />
+              </div>
             </div>
           </div>
         </div>
@@ -51,7 +54,12 @@ const Index = () => {
               >
                 Terms of Service
               </Link>
-
+              <Link
+                to="/contact-support"
+                className="hover:text-primary transition-colors duration-300"
+              >
+                Contact Support
+              </Link>
             </div>
             <div className="text-muted-foreground text-sm">
               © Voyant
