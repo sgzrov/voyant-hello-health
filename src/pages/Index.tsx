@@ -1,13 +1,11 @@
 import { EmailCollector } from "@/components/EmailCollector";
 import { FloatingElements } from "@/components/FloatingElements";
-import { Clouds } from "@/components/Clouds";
 import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-subtle relative overflow-hidden flex flex-col">
       <FloatingElements />
-      <Clouds />
 
       {/* Hero Section */}
       <section className="relative z-10 pt-20 pb-16 px-4 flex-1 flex items-center">

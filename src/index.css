@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
@@ -67,39 +67,7 @@ All colors MUST be HSL.
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
-  /* Cloud animations */
-  @keyframes float-slow {
-    0%, 100% { transform: translateX(0) translateY(0); }
-    25% { transform: translateX(-20px) translateY(-10px); }
-    50% { transform: translateX(-40px) translateY(5px); }
-    75% { transform: translateX(-20px) translateY(15px); }
-  }
 
-  @keyframes float-medium {
-    0%, 100% { transform: translateX(0) translateY(0); }
-    25% { transform: translateX(-15px) translateY(-8px); }
-    50% { transform: translateX(-30px) translateY(3px); }
-    75% { transform: translateX(-15px) translateY(12px); }
-  }
-
-  @keyframes float-fast {
-    0%, 100% { transform: translateX(0) translateY(0); }
-    25% { transform: translateX(-10px) translateY(-5px); }
-    50% { transform: translateX(-20px) translateY(2px); }
-    75% { transform: translateX(-10px) translateY(8px); }
-  }
-
-  .animate-float-slow {
-    animation: float-slow 20s ease-in-out infinite;
-  }
-
-  .animate-float-medium {
-    animation: float-medium 15s ease-in-out infinite;
-  }
-
-  .animate-float-fast {
-    animation: float-fast 12s ease-in-out infinite;
-  }
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
