@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const ContactSupport = () => {
+  const openGmail = () => {
+    const subject = encodeURIComponent("Voyant Support Request");
+    const body = encodeURIComponent("Hi Stephan,\n\nI need help with Voyant:\n\n");
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=sgzrov@gmail.com&su=${subject}&body=${body}`;
+    window.open(gmailUrl, '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-4xl mx-auto px-6 py-12">
@@ -29,10 +36,8 @@ const ContactSupport = () => {
             <p className="text-muted-foreground mb-6">
               Send us an email and we'll respond within 24 hours.
             </p>
-            <Button asChild className="bg-gradient-primary">
-              <a href="mailto:sgzrov@gmail.com?subject=Voyant%20Support%20Request">
-                Email us at sgzrov@gmail.com
-              </a>
+            <Button onClick={openGmail} className="bg-gradient-primary">
+              Email us at sgzrov@gmail.com
             </Button>
           </div>
         </div>
