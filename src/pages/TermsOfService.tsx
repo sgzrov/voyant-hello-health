@@ -45,7 +45,7 @@ const TermsOfService = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
               <p className="text-muted-foreground leading-relaxed">
-                If you have questions about these Terms of Service, please contact us at terms@voyant.health
+                If you have questions about these Terms of Service, please contact us at stephan@voy4nt.com
               </p>
             </section>
           </div>
