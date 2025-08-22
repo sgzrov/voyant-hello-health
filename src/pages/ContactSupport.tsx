@@ -7,8 +7,8 @@ const ContactSupport = () => {
     const subject = encodeURIComponent("Voyant Support Request");
     const body = encodeURIComponent("Hi Stephan,\n\nI need help with Voyant:\n\n");
 
-    // Use the correct Gmail compose URL
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=sgzrov@gmail.com&su=${subject}&body=${body}`;
+    // Use Gmail's current compose URL format
+    const gmailUrl = `https://mail.google.com/mail/u/0/#compose?to=sgzrov@gmail.com&subject=${subject}&body=${body}`;
 
     // Try to open Gmail compose window
     window.open(gmailUrl, '_blank');
