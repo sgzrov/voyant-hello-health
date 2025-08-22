@@ -3,24 +3,19 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const ContactSupport = () => {
-  const openGmail = () => {
-    // Use mailto: link with proper encoding for pre-filling fields
-    const subject = "Voyant Support Request";
-    const body = "Hi Stephan,\n\nI need help with Voyant:\n\n";
+  // Create mailto link with proper encoding for pre-filling fields
+  const subject = "Voyant Support Request";
+  const body = "Hi Stephan,\n\nI need help with Voyant:\n\n";
 
-    // Manual encoding for mailto compatibility (not encodeURIComponent)
-    const encodedSubject = subject.replace(/\s/g, '%20');
-    const encodedBody = body
-      .replace(/\s/g, '%20')
-      .replace(/\n/g, '%0A')
-      .replace(/,/g, '%2C')
-      .replace(/:/g, '%3A');
+  // Manual encoding for mailto compatibility (not encodeURIComponent)
+  const encodedSubject = subject.replace(/\s/g, '%20');
+  const encodedBody = body
+    .replace(/\s/g, '%20')
+    .replace(/\n/g, '%0A')
+    .replace(/,/g, '%2C')
+    .replace(/:/g, '%3A');
 
-    const mailtoUrl = `mailto:sgzrov@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
-
-    // This should open Gmail as normal compose window with pre-filled fields
-    window.location.href = mailtoUrl;
-  };
+  const mailtoUrl = `mailto:sgzrov@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -48,8 +43,10 @@ const ContactSupport = () => {
             <p className="text-muted-foreground mb-6">
               Send us an email and we'll respond within 24 hours.
             </p>
-            <Button onClick={openGmail} className="bg-gradient-primary">
-              Email us at sgzrov@gmail.com
+            <Button asChild className="bg-gradient-primary">
+              <a href={mailtoUrl}>
+                Email us at sgzrov@gmail.com
+              </a>
             </Button>
           </div>
         </div>
