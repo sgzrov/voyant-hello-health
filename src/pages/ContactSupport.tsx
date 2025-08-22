@@ -4,11 +4,20 @@ import { Button } from "@/components/ui/button";
 
 const ContactSupport = () => {
   const openGmail = () => {
-    const subject = encodeURIComponent("Voyant Support Request");
-    const body = encodeURIComponent("Hi Stephan,\n\nI need help with Voyant:\n\n");
+    // Properly encode special characters for Gmail compose URL
+    const subject = "Voyant Support Request";
+    const body = "Hi Stephan,\n\nI need help with Voyant:\n\n";
 
-    // Use the proven working Gmail compose URL format with correct parameters
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=sgzrov@gmail.com&su=${subject}&body=${body}`;
+    // Manual URL encoding for Gmail compatibility
+    const encodedSubject = subject.replace(/\s/g, '%20');
+    const encodedBody = body
+      .replace(/\s/g, '%20')
+      .replace(/\n/g, '%0A')
+      .replace(/,/g, '%2C')
+      .replace(/:/g, '%3A');
+
+    // Use the proven working Gmail compose URL format with proper encoding
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=sgzrov@gmail.com&su=${encodedSubject}&body=${encodedBody}`;
 
     // Try to open Gmail compose window
     window.open(gmailUrl, '_blank');
