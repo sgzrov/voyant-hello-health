@@ -4,13 +4,21 @@ import { Button } from "@/components/ui/button";
 
 const ContactSupport = () => {
   const openGmail = () => {
-    // Use mailto: link which opens default email client (Gmail) as normal compose
-    const subject = encodeURIComponent("Voyant Support Request");
-    const body = encodeURIComponent("Hi Stephan,\n\nI need help with Voyant:\n\n");
+    // Use mailto: link with proper encoding for pre-filling fields
+    const subject = "Voyant Support Request";
+    const body = "Hi Stephan,\n\nI need help with Voyant:\n\n";
 
-    const mailtoUrl = `mailto:sgzrov@gmail.com?subject=${subject}&body=${body}`;
+    // Manual encoding for mailto compatibility (not encodeURIComponent)
+    const encodedSubject = subject.replace(/\s/g, '%20');
+    const encodedBody = body
+      .replace(/\s/g, '%20')
+      .replace(/\n/g, '%0A')
+      .replace(/,/g, '%2C')
+      .replace(/:/g, '%3A');
 
-    // This should open Gmail as normal compose window (not fullscreen)
+    const mailtoUrl = `mailto:sgzrov@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+
+    // This should open Gmail as normal compose window with pre-filled fields
     window.location.href = mailtoUrl;
   };
 
